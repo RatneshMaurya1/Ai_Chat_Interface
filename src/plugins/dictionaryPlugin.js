@@ -32,9 +32,7 @@ const dictionaryPlugin = {
     }
 
     try {
-      console.log('Fetching definition for:', cleanWord);
       const response = await axios.get(`${import.meta.env.VITE_DICTIONARY_BASE_URL}/${encodeURIComponent(cleanWord)}`);
-      console.log('Dictionary API response:', response.data);
       
       const [result] = response.data;
       if (!result || !result.meanings || !result.meanings.length) {

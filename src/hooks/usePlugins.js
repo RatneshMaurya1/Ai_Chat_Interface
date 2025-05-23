@@ -5,7 +5,6 @@ export const usePlugins = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const parseCommand = (message) => {
-    // Check for slash commands first
     if (message.startsWith('/')) {
       const [command, ...args] = message.slice(1).split(' ');
       return {
@@ -14,7 +13,6 @@ export const usePlugins = () => {
       };
     }
 
-    // Try natural language parsing
     return pluginRegistry.parseNaturalLanguage(message);
   };
 
@@ -24,20 +22,16 @@ export const usePlugins = () => {
 
     setIsLoading(true);
     try {
-      console.log('Executing plugin:', parsed.command, 'with args:', parsed.args);
       const plugin = pluginRegistry.getPlugin(parsed.command);
       
       if (!plugin) {
-        console.error('Plugin not found:', parsed.command);
         return {
           type: 'text',
           content: `Unknown command: ${parsed.command}`,
         };
       }
 
-      console.log('Plugin found:', plugin);
       const result = await plugin.execute(parsed.args);
-      console.log('Plugin result:', result);
       
       return {
         type: 'plugin',

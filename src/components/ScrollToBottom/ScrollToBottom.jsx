@@ -6,12 +6,9 @@ const ScrollToBottom = ({ children, className }) => {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    const shouldScroll = containerRef.current && 
-      containerRef.current.scrollHeight - containerRef.current.scrollTop <= containerRef.current.clientHeight + 150;
-    
-    if (shouldScroll) {
+    requestAnimationFrame(() => {
       bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }
+    });
   }, [children]);
 
   return (
@@ -22,4 +19,4 @@ const ScrollToBottom = ({ children, className }) => {
   );
 };
 
-export default ScrollToBottom; 
+export default ScrollToBottom;

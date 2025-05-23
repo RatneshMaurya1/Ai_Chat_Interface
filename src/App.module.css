@@ -70,3 +70,8 @@
   margin: 0.5rem;
   display: inline-block;
 } 
+@media (max-width:415px) {
+  .container{
+    padding: 1rem;
+  }
+}
