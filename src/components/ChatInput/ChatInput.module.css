@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  gap: 0.5rem;
+}
+
+.input {
+  flex-grow: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  border-color: #4dabf7;
+}
+
+.button {
+  padding: 0.75rem 1.5rem;
+  background-color: #4dabf7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #339af0;
+}
+
+.button:active {
+  background-color: #228be6;
+} 
